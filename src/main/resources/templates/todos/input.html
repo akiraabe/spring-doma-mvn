@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Todo</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <p>
+    <h2>Input Todo</h2>
+    <form th:action="@{/todos/create}" th:object="${todoForm}"
+          method="POST">
+
+        <div th:if="${#fields.hasErrors('all')}">
+            <p th:text="#{common.error}">ErrorMessage</p>
+        </div>
+
+        <div class="form-group">
+            <label for="id">id<span
+                    th:if="${#fields.hasErrors('id')}"
+                    th:errors="*{id}">Error</span>
+            </label> <input type="text" id="id"
+                            name="id" th:field="*{id}" placeholder="id"/>
+        </div>
+        <div class="form-group">
+            <label for="title">title<span
+                    th:if="${#fields.hasErrors('title')}"
+                    th:errors="*{title}">Error</span>
+            </label> <input type="text" id="title"
+                            name="title" th:field="*{title}" placeholder="title"/>
+        </div>
+        <div class="form-group">
+            <label for="description">descriptin<span
+                    th:if="${#fields.hasErrors('description')}"
+                    th:errors="*{description}">Error</span>
+            </label> <input type="text" id="description"
+                            name="description" th:field="*{description}" placeholder="description"/>
+        </div>
+        <div class="form-actions">
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </div>
+    </form>
+    </p>
+</section>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Todo</title></head>
+<body>
+<section layout:fragment="content">
+    <p>
+    <h2>Show Todo</h2>
+    <div th:object="${todo}">
+        <table border='0'>
+            <tr>
+                <td>Id :</td>
+                <td th:text="*{id}">1</td>
+            </tr>
+            <tr>
+                <td>Title :</td>
+                <td th:text="*{title}">hogehoge</td>
+            </tr>
+            <tr>
+                <td>Description :</td>
+                <td th:text="*{description}">description</td>
+            </tr>
+        </table>
+    </div>
+    </p>
+</section>
+</body>
+</html>
