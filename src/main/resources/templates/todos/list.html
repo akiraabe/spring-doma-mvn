@@ -19,6 +19,9 @@
     <div>
         <a th:href="@{'/todos/input'}">New Todo</a>
     </div>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
     </p>
 </section>
 </body>
